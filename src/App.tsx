@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { ShoppingProvider, useShopping } from "./context/ShoppingContext";
+import ItemForm from "./components/ItemForm";
+import ItemList from "./components/ItemList";
 
-function App() {
-  const [count, setCount] = useState(0)
+function DebugCounter() {
+  const { state, dispatch } = useShopping();
+  const itemsCount = state.items.length;
+  const totalUnits = state.items.reduce((acc, it) => acc + it.quantity, 0);
+  const purchasedCount = state.items.filter(it => it.status === 'purchased').length;
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+    <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+      <p style={{ margin: 0 }}>
+        Items: {itemsCount} | Total units: {totalUnits}
+        {purchasedCount > 0 && ` | Purchased: ${purchasedCount}`}
       </p>
-    </>
-  )
+      <button
+        onClick={() => dispatch({ type: 'CLEAR_PURCHASED' })}
+        disabled={purchasedCount === 0}
+        title="Remove all purchased items"
+      >
+        Clear purchased
+      </button>
+      <button
+        onClick={() => dispatch({ type: 'CLEAR_ALL' })}
+        disabled={itemsCount === 0}
+        title="Remove all items"
+      >
+        Clear all
+      </button>
+    </div>
+  );
 }
 
-export default App
+export default function App() {
+  return (
+    <ShoppingProvider>
+      <main className="min-h-screen bg-slate-50 text-slate-900">
+        <div className="max-w-xl mx-auto p-6">
+          <h1 className="text-3xl font-extrabold text-sky-700 mb-4">Shopping List</h1>
+          <ItemForm />
+          <DebugCounter />
+          <ItemList />
+        </div>
+      </main>
+    </ShoppingProvider>
+  );
+}
