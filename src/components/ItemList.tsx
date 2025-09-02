@@ -1,15 +1,24 @@
 import React from "react";
 import { useShopping } from "../context/ShoppingContext";
 import ItemRow from "./ItemRow";
+import type { StatusFilter } from "../domain/filters";
 
-export default function ItemList() {
+type Props = { filter: StatusFilter };
+
+export default function ItemList({ filter }: Props) {
   const { state } = useShopping();
 
-  if (state.items.length === 0) return <p>No items yet.</p>;
+  const visible = state.items.filter((it) =>
+    filter === "all" ? true : it.status === filter
+  );
+
+  if (visible.length === 0) {
+    return <p className="text-sm text-slate-500">No items yet.</p>;
+  }
 
   return (
-    <ul style={{ paddingLeft: 0, listStyle: "none" }}>
-      {state.items.map(it => (
+    <ul className="divide-y divide-slate-200 bg-white rounded-lg shadow-sm border border-slate-200">
+      {visible.map((it) => (
         <ItemRow key={it.id} item={it} />
       ))}
     </ul>
