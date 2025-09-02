@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { ShoppingProvider, useShopping } from "./context/ShoppingContext";
 import ItemForm from "./components/ItemForm";
 import ItemList from "./components/ItemList";
-import FilterBar from "./components/FilterBar";
+import FilterBarContainer from "./components/FilterBarContainer"; 
+
 import type { StatusFilter } from "./domain/filters";
 
 function DebugCounter() {
@@ -50,9 +51,9 @@ export default function App() {
           <h1 className="text-3xl font-extrabold text-sky-700">Shopping List</h1>
           <ItemForm />
           <DebugCounter />
-          {/* Pills de filtro */}
-          <FilterBar value={filter} onChange={setFilter} />
-          {/* Lista filtrada */}
+          {/* Filter controls (with counters) */}
+          <FilterBarContainer value={filter} onChange={setFilter} /> { }
+          {/* Items list (filtered) */}
           <ItemList filter={filter} />
         </div>
       </main>
