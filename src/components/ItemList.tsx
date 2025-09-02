@@ -16,7 +16,8 @@ export default function ItemList({ filter }: Props) {
   }
 
   return (
-    <ul className="divide-y divide-slate-200 bg-white rounded-lg shadow-sm border border-slate-200">
+    <ul className="max-h-96 overflow-y-auto pr-2 divide-y divide-slate-200
+                  bg-white rounded-lg shadow-sm border border-slate-200">
       {visible.map((it) => (
         <ItemRow key={it.id} item={it} />
       ))}
