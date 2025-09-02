@@ -7,7 +7,6 @@ type Props = { filter: StatusFilter };
 
 export default function ItemList({ filter }: Props) {
   const { state } = useShopping();
-
   const visible = state.items.filter((it) =>
     filter === "all" ? true : it.status === filter
   );

@@ -21,7 +21,7 @@ export default function FilterBar({ value, onChange, counts }: Props) {
             onClick={() => onChange(opt)}
             aria-pressed={active}
             className={[
-              "px-3 py-1 rounded-full capitalize transition flex items-center gap-2",
+              "cursor-pointer px-3 py-1 rounded-full capitalize transition flex items-center gap-2",
               active ? "bg-sky-600 text-white shadow" : "text-slate-700 hover:bg-white",
             ].join(" ")}
           >

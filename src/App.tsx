@@ -25,7 +25,9 @@ function DebugCounter() {
         onClick={() => dispatch({ type: "CLEAR_PURCHASED" })}
         disabled={purchasedCount === 0}
         title="Remove all purchased items"
-        className="px-3 py-1 rounded-md text-sm bg-amber-100 text-amber-800 hover:bg-amber-200 disabled:opacity-40 disabled:hover:bg-amber-100"
+        className="cursor-pointer px-3 py-1 rounded-md text-sm bg-amber-100 text-amber-800
+                  hover:bg-amber-200 disabled:opacity-40 disabled:hover:bg-amber-100
+                  focus:outline-none focus:ring-2 focus:ring-amber-300"
       >
         Clear purchased
       </button>
@@ -33,7 +35,9 @@ function DebugCounter() {
         onClick={() => dispatch({ type: "CLEAR_ALL" })}
         disabled={itemsCount === 0}
         title="Remove all items"
-        className="px-3 py-1 rounded-md text-sm bg-rose-100 text-rose-800 hover:bg-rose-200 disabled:opacity-40 disabled:hover:bg-rose-100"
+        className="cursor-pointer px-3 py-1 rounded-md text-sm bg-rose-100 text-rose-800
+                  hover:bg-rose-200 disabled:opacity-40 disabled:hover:bg-rose-100
+                  focus:outline-none focus:ring-2 focus:ring-rose-300"
       >
         Clear all
       </button>
