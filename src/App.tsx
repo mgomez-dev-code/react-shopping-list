@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { ShoppingProvider, useShopping } from "./context/ShoppingContext";
 import ItemForm from "./components/ItemForm";
 import ItemList from "./components/ItemList";

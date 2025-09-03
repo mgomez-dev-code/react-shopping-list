@@ -1,4 +1,3 @@
-import React from "react";
 import type { StatusFilter, FilterCounts } from "../domain/filters";
 
 type Props = {

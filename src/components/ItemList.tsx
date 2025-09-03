@@ -1,4 +1,3 @@
-import React from "react";
 import { useShopping } from "../context/ShoppingContext";
 import ItemRow from "./ItemRow";
 import type { StatusFilter } from "../domain/filters";

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, type KeyboardEvent } from "react";
 import type { Item } from "../domain/models";
 import { useShopping } from "../context/ShoppingContext";
 
@@ -17,7 +17,7 @@ export default function ItemRow({ item }: Props) {
     setEditing(false);
   };
 
-  const onKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const onKey = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") save();
     if (e.key === "Escape") setEditing(false);
   };

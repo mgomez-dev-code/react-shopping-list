@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { useShopping } from "../context/ShoppingContext";
 
 export default function ItemForm() {
@@ -6,7 +6,7 @@ export default function ItemForm() {
   const [name, setName] = useState("");
   const [qty, setQty] = useState(1);
 
-  function onSubmit(e: React.FormEvent) {
+  function onSubmit(e: FormEvent) {
     e.preventDefault();
     if (!name.trim()) return;
     dispatch({ type: "ADD_ITEM", payload: { name, quantity: qty } });
