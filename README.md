@@ -1,4 +1,10 @@
 # React Shopping List (Vite + TypeScript)
+[![Vercel](https://img.shields.io/badge/Deploy-Vercel-black)](https://react-shopping-list-mgomez.vercel.app)
+![React](https://img.shields.io/badge/React-18-61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6)
+![Vite](https://img.shields.io/badge/Vite-7-646CFF)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-38B2AC)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A small SPA to manage a shopping list.  
 This project demonstrates modern React with TypeScript, clean structure, and clear code comments in English.
