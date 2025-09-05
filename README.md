@@ -3,29 +3,72 @@
 A small SPA to manage a shopping list.  
 This project demonstrates modern React with TypeScript, clean structure, and clear code comments in English.
 
-## Getting Started
+## Live Demo
+https://react-shopping-list-mgomez.vercel.app
 
-```bash
-npm install
-npm run dev
-```
+## Screenshot
+<p align="center">
+  <img src="docs/screenshot.png" width="900" alt="Shopping List app screenshot" />
+</p>
 
-Open [http://localhost:5173](http://localhost:5173) to view the app in your browser.
+## Features (MVP)
+- 🧠 Global state with **Context + Reducer** (typed actions & state)
+- ➕ Add items, ✏️ inline edit (name & quantity), ✅ toggle purchased, 🗑️ delete
+- 🧹 **Clear purchased** and **Clear all**
+- 🔎 **Filter pills** (All / Pending / Purchased) with live counters
+- 💾 **LocalStorage** persistence (per domain)
+- 🎨 **Tailwind CSS v4** styles (via `@tailwindcss/postcss`)
+- ♿ Accessible basics (labels, focus states, keyboard Enter/Escape on edit)
+- 🚀 Deployed on **Vercel** (CI on push to `main`)
 
 ## Tech Stack
-- React 18
-- TypeScript
+- React 18 + TypeScript
 - Vite
-- ESLint + Prettier (to be added)
-- (Next steps) Context + Reducer, LocalStorage persistence, Unit tests with Vitest
+- Tailwind CSS v4
+- (Deployment) Vercel
 
-## Project Status
-Currently just a starter template created with Vite.  
-Upcoming features will include:
-- Add, toggle, and remove items
-- LocalStorage persistence
-- Filters and sorting
-- Unit tests
+## Getting Started
+
+    npm install
+    npm run dev
+    # open http://localhost:5173
+
+### Production build & preview
+
+    npm run build
+    npm run preview
+    # open http://localhost:4173
+
+## Project Structure
+
+    src/
+      components/
+        FilterBar.tsx
+        FilterBarContainer.tsx
+        ItemForm.tsx
+        ItemList.tsx
+        ItemRow.tsx
+      context/
+        ShoppingContext.tsx       # Provider + hook + localStorage sync
+        shoppingReducer.ts        # Reducer, actions, initialState
+      domain/
+        models.ts                 # Item types
+        filters.ts                # StatusFilter types
+      App.tsx
+      main.tsx
+      index.css                   # Tailwind entry (@import "tailwindcss")
+
+## Architecture Notes
+- **State management:** Context + Reducer (pure functions, predictable updates).
+- **Persistence:** `localStorage` under the key `shopping_state`.
+- **UI state vs. app state:** the current filter is UI state (component), items are global (context).
+- **Tailwind v4:** configured with `postcss.config.cjs` and `tailwind.config.cjs`; CSS entry uses `@import "tailwindcss"`.
+
+## Next Steps (nice-to-haves)
+- ✅ Unit tests with **Vitest + React Testing Library**
+- Sorting & simple categories/priorities
+- Basic empty states and micro-animations
+- ESLint + Prettier config
 
 ## License
 MIT
