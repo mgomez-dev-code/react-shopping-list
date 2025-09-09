@@ -46,23 +46,30 @@ https://react-shopping-list-mgomez.vercel.app
     # open http://localhost:4173
 
 ## Project Structure
+    react-shopping-list/
+    ├─ src/
+    │  ├─ components/
+    │  │  ├─ FilterBar.tsx
+    │  │  ├─ FilterBarContainer.tsx
+    │  │  ├─ ItemForm.tsx
+    │  │  ├─ ItemList.tsx
+    │  │  └─ ItemRow.tsx
+    │  ├─ context/
+    │  │  ├─ ShoppingContext.tsx      # Provider + hook + localStorage sync
+    │  │  └─ shoppingReducer.ts       # Reducer, actions, initialState
+    │  ├─ domain/
+    │  │  ├─ models.ts                # Item types
+    │  │  └─ filters.ts               # StatusFilter types
+    │  ├─ App.tsx
+    │  ├─ main.tsx
+    │  └─ index.css                   # Tailwind entry (@import "tailwindcss")
+    ├─ public/                        # (Vite: está vacío o con favicon)
+    ├─ postcss.config.cjs
+    ├─ tailwind.config.cjs
+    ├─ tsconfig.json
+    ├─ vite.config.ts
+    └─ README.md
 
-    src/
-      components/
-        FilterBar.tsx
-        FilterBarContainer.tsx
-        ItemForm.tsx
-        ItemList.tsx
-        ItemRow.tsx
-      context/
-        ShoppingContext.tsx       # Provider + hook + localStorage sync
-        shoppingReducer.ts        # Reducer, actions, initialState
-      domain/
-        models.ts                 # Item types
-        filters.ts                # StatusFilter types
-      App.tsx
-      main.tsx
-      index.css                   # Tailwind entry (@import "tailwindcss")
 
 ## Architecture Notes
 - **State management:** Context + Reducer (pure functions, predictable updates).
