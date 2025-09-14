@@ -63,7 +63,7 @@ https://react-shopping-list-mgomez.vercel.app
     │  ├─ App.tsx
     │  ├─ main.tsx
     │  └─ index.css                   # Tailwind entry (@import "tailwindcss")
-    ├─ public/                        # (Vite: está vacío o con favicon)
+    ├─ public/                        # (Vite: it’s empty or with a favicon)
     ├─ postcss.config.cjs
     ├─ tailwind.config.cjs
     ├─ tsconfig.json
